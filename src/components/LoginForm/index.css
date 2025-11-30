@@ -1,27 +1,129 @@
-.login-button[disabled] {
-  opacity: 0.6;
-  cursor: not-allowed;
+.login-form-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: #f8fafc;
+  box-sizing: border-box;
+  gap: 32px;
 }
 
-/* Shake animation on error */
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-4px);
-  }
-  50% {
-    transform: translateX(4px);
-  }
-  75% {
-    transform: translateX(-4px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+/* Branding logo (mobile) */
+.login-website-logo-mobile-image {
+  display: none;
+  width: 160px;
+  margin-bottom: 16px;
 }
 
-.form-shake {
-  animation: shake 0.3s ease-in-out;
+/* Left side illustration */
+.login-image {
+  width: 360px;
+  max-width: 45%;
+}
+
+/* Form card */
+.form-container {
+  width: 320px;
+  max-width: 100%;
+  background-color: #ffffff;
+  padding: 24px 24px 28px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+/* Desktop logo inside form */
+.login-website-logo-desktop-image {
+  width: 140px;
+  align-self: center;
+  margin-bottom: 8px;
+}
+
+/* Inputs */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.username-input-field,
+.password-input-field {
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #cbd5f5;
+  padding: 0 10px;
+  outline: none;
+  font-size: 14px;
+  color: #1e293b;
+  background-color: #f8fafc;
+}
+
+.username-input-field::placeholder,
+.password-input-field::placeholder {
+  color: #94a3b8;
+}
+
+/* CTA */
+.login-button {
+  margin-top: 8px;
+  height: 38px;
+  border-radius: 6px;
+  border: none;
+  background-color: #0b69ff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.login-button:hover {
+  background-color: #0753c5;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Error */
+.error-message {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  color: #ef4444;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .login-form-container {
+    flex-direction: column;
+    padding: 24px 16px;
+  }
+
+  .login-image {
+    order: 2;
+    width: 260px;
+    max-width: 80%;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .login-website-logo-mobile-image {
+    display: block;
+  }
+
+  .login-website-logo-desktop-image {
+    display: none;
+  }
 }
