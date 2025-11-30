@@ -10,6 +10,7 @@ class LoginForm extends Component {
     password: "",
     showSubmitError: false,
     errorMsg: "",
+    isSubmitting: false,
   };
 
   onChangeUsername = (event) => {
@@ -28,15 +29,22 @@ class LoginForm extends Component {
       path: "/",
     });
 
+    this.setState({ isSubmitting: false, showSubmitError: false, errorMsg: "" });
     history.replace("/");
   };
 
   onSubmitFailure = (errorMsg) => {
-    this.setState({ showSubmitError: true, errorMsg });
+    this.setState({
+      showSubmitError: true,
+      errorMsg,
+      isSubmitting: false,
+    });
   };
 
   submitForm = async (event) => {
     event.preventDefault();
+
+    this.setState({ isSubmitting: true, showSubmitError: false, errorMsg: "" });
 
     const { username, password } = this.state;
     const userDetails = { username, password };
@@ -47,13 +55,17 @@ class LoginForm extends Component {
       body: JSON.stringify(userDetails),
     };
 
-    const response = await fetch(url, options);
-    const data = await response.json();
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
 
-    if (response.ok === true) {
-      this.onSubmitSuccess(data.jwt_token);
-    } else {
-      this.onSubmitFailure(data.error_msg);
+      if (response.ok === true) {
+        this.onSubmitSuccess(data.jwt_token);
+      } else {
+        this.onSubmitFailure(data.error_msg);
+      }
+    } catch (e) {
+      this.onSubmitFailure("Something went wrong. Please try again.");
     }
   };
 
@@ -68,10 +80,12 @@ class LoginForm extends Component {
         <input
           type="password"
           id="password"
+          name="password"
           className="password-input-field"
           value={password}
           onChange={this.onChangePassword}
           placeholder="Password"
+          autoComplete="current-password"
         />
       </>
     );
@@ -88,22 +102,29 @@ class LoginForm extends Component {
         <input
           type="text"
           id="username"
+          name="username"
           className="username-input-field"
           value={username}
           onChange={this.onChangeUsername}
           placeholder="Username"
+          autoComplete="username"
+          autoFocus
         />
       </>
     );
   };
 
   render() {
-    const { showSubmitError, errorMsg } = this.state;
-    const jwtToken = Cookies.get("jwt_token");
+    const { showSubmitError, errorMsg, isSubmitting } = this.state;
 
+    const jwtToken = Cookies.get("jwt_token");
     if (jwtToken !== undefined) {
       return <Redirect to="/" />;
     }
+
+    const formClasses = `form-container ${
+      showSubmitError ? "form-shake" : ""
+    }`;
 
     return (
       <div className="login-form-container">
@@ -119,7 +140,7 @@ class LoginForm extends Component {
           alt="website login"
         />
 
-        <form className="form-container" onSubmit={this.submitForm}>
+        <form className={formClasses} onSubmit={this.submitForm}>
           <img
             src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
             className="login-website-logo-desktop-image"
@@ -129,8 +150,12 @@ class LoginForm extends Component {
           <div className="input-container">{this.renderUsernameField()}</div>
           <div className="input-container">{this.renderPasswordField()}</div>
 
-          <button type="submit" className="login-button">
-            Login
+          <button
+            type="submit"
+            className="login-button"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Logging in..." : "Login"}
           </button>
 
           {showSubmitError && (
