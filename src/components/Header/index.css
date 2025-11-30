@@ -1,0 +1,136 @@
+.nav-header {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Shared content wrapper */
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+}
+
+/* Mobile top row: logo + logout icon */
+.nav-bar-mobile-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Desktop navbar row */
+.nav-bar-large-container {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.website-logo {
+  height: 32px;
+}
+
+/* Desktop menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu-item {
+  font-size: 14px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #1f2933;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #0b69ff;
+}
+
+/* Desktop logout button */
+.logout-desktop-btn {
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: none;
+  background-color: #0b69ff;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-desktop-btn:hover {
+  background-color: #0753c5;
+}
+
+/* Mobile logout button */
+.nav-mobile-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-bar-image {
+  height: 24px;
+}
+
+/* Mobile bottom icon menu */
+.nav-menu-mobile {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e2e8f0;
+}
+
+.nav-menu-list-mobile {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  padding: 8px 24px;
+  margin: 0;
+  width: 100%;
+  max-width: 420px;
+}
+
+.nav-menu-item-mobile {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive behavior */
+@media (min-width: 768px) {
+  .nav-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-bar-mobile-logo-container {
+    display: none;
+  }
+
+  .nav-bar-large-container {
+    display: flex;
+  }
+
+  .nav-menu-mobile {
+    display: none;
+  }
+
+  .website-logo {
+    height: 36px;
+  }
+}

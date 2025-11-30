@@ -1,0 +1,246 @@
+.product-item-details-container {
+  min-height: calc(100vh - 72px);
+  padding: 24px 32px;
+  background-color: #f8fafc;
+  box-sizing: border-box;
+}
+
+/* Loader */
+.products-details-loader-container {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Failure view */
+.product-details-failure-view-container {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.failure-view-image {
+  width: 260px;
+  max-width: 80%;
+  margin-bottom: 16px;
+}
+
+.product-not-found-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 10px 0;
+}
+
+/* Reusable button style */
+.button {
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  background-color: #0b69ff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.button:hover {
+  background-color: #0753c5;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Success view */
+.product-details-success-view {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Main layout */
+.product-details-container {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* Product image */
+.product-image {
+  width: 320px;
+  max-width: 40%;
+  border-radius: 10px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 16px;
+}
+
+/* Product text block */
+.product {
+  flex: 1;
+}
+
+.product-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.price-details {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0b69ff;
+  margin: 0 0 12px 0;
+}
+
+/* Rating + reviews */
+.rating-and-reviews-count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #0b69ff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.rating {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+}
+
+.reviews-count {
+  font-size: 13px;
+  color: #475569;
+  margin: 0;
+}
+
+/* Description + meta */
+.product-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 8px 0 12px;
+}
+
+.label-value-container {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.value {
+  font-size: 14px;
+  color: #1f2937;
+}
+
+.horizontal-line {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 14px 0;
+}
+
+/* Quantity controls */
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 14px;
+}
+
+.quantity-controller-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.quantity-controller-icon {
+  font-size: 18px;
+  color: #334155;
+}
+
+.quantity {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Add to cart button */
+.add-to-cart-btn {
+  margin-top: 2px;
+}
+
+/* Similar products */
+.similar-products-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 10px 0;
+}
+
+.similar-products-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-item-details-container {
+    padding: 16px;
+  }
+
+  .product-details-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image {
+    width: 260px;
+    max-width: 100%;
+  }
+
+  .product {
+    width: 100%;
+  }
+
+  .product-name {
+    font-size: 20px;
+  }
+
+  .price-details {
+    font-size: 18px;
+  }
+
+  .similar-products-list {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}

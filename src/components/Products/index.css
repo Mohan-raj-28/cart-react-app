@@ -1,0 +1,25 @@
+.product-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px 32px;
+  background-color: #f8fafc;
+  min-height: calc(100vh - 72px);
+  box-sizing: border-box;
+}
+
+/* Desktop refinement — side by side view */
+@media (min-width: 992px) {
+  .product-sections {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .product-sections {
+    padding: 18px 16px;
+    gap: 24px;
+  }
+}
